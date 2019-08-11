@@ -1,6 +1,13 @@
+.body {
+    background-color: aquamarine;
+    height:  860px;
+    padding-top: 40px;
+    width: 100%;
+}
 .btn {
-    margin-top: 5px;
+    margin-top: 10px;
     align: right;
+    margin-bottom: 20px;
 }
 .page-header{
     margin-bottom: 20px;
@@ -9,4 +16,20 @@
     .page-header {
         font-size: 24px;
     }
+}
+.head {
+    height: 40px;
+    background-color: DarkSlateGray;
+    padding-top: 0.3%;
+}
+.header-text {
+    font-size: 24px;
+    color: White;
+}
+.foot {
+    background-color: darkgray;
+}
+.footer-text {
+    font-size: 24px;
+    color: darkblue;
 }

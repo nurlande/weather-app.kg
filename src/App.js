@@ -5,6 +5,7 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 import Form from './Form';
 import Result from './Result';
+import Footer from './Footer';
 import 'bootstrap/dist/css/bootstrap.css';
 
 
@@ -17,7 +18,8 @@ class App extends React.Component {
     state = {
         temp: undefined,
         city: undefined,
-        country: undefined
+        country: undefined,
+        sunset: undefined
     }
 
     getPogoda = async(e) => {
@@ -27,38 +29,45 @@ class App extends React.Component {
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
         const data = await api_url.json();
         console.log(data);
+        var sunset = data.sys.sunset;
+        var date = new Date();
+        date.setTime(sunset);
+        var sunset_date = date.getHours() + ":"+ date.getMinutes()+":"+date.getSeconds();
 
         this.setState({
             temp: data.main.temp,
             city: data.name,
-            country: data.sys.country
+            country: data.sys.country,
+            sunset: sunset_date
         });
     }
     render () {
         return(
-        <div>
+        <div className="full-page">
             <Header />
-            <div className="container">
+            <div className="container body">
             <div className="row">
             <div className="col-sm-4">
             <Sidebar />
             </div>
             <div className="col-sm-8">
             <div className="row">
-            <div className="col">
+            <div className="col-sm-6">
             <Form pogoda = {this.getPogoda}/>
             </div>
-            <div className="col">
+            <div className="col-sm-6">
             <Result
             celcius= { this.state.temp}
             cityName = { this.state.city}
             countryName = { this.state.country}
+            zakat = {this.state.sunset}
             />
             </div>
             </div>
             </div>
             </div>
             </div>
+            <Footer />
          </div>
             )
     }

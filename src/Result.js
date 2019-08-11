@@ -6,8 +6,8 @@ class Result extends React.Component {
             <div>
             {this.props.cityName &&
             <div>
-            <p>{this.props.cityName} is {this.props.celcius} Celcius.</p>
-            <p>You country is {this.props.countryName}</p>
+            <p>Температура в {this.props.cityName}е {this.props.countryName} {this.props.celcius} Celcius градусов.</p>
+            <p>Закат в вашем город в {this.props.zakat}</p>
             </div>
             }
             </div>
