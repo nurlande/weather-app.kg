@@ -28,6 +28,7 @@
 }
 .foot {
     background-color: darkgray;
+    height: 56px;
 }
 .footer-text {
     font-size: 24px;

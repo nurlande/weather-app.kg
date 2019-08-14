@@ -15,7 +15,7 @@ class Form extends React.Component {
               <option value="Jalal-Abad">Джалал-Абад</option>
               <option value="Naryn">Нарын</option>
             </select>
-            <button type="submit" className="btn btn-primary">Показать погоду</button>
+            <button type="submit" className="btn btn-primary btn-block">Показать погоду</button>
             </form>
             </div>
         )

@@ -19,7 +19,10 @@ class App extends React.Component {
         temp: undefined,
         city: undefined,
         country: undefined,
-        sunset: undefined
+        sunset: undefined,
+        sunrise: undefined,
+        pressure: undefined,
+        wind: undefined
     }
 
     getPogoda = async(e) => {
@@ -30,15 +33,21 @@ class App extends React.Component {
         const data = await api_url.json();
         console.log(data);
         var sunset = data.sys.sunset;
+        var sunrise = data.sys.sunrise;
         var date = new Date();
         date.setTime(sunset);
+        date.setTime(sunrise);
         var sunset_date = date.getHours() + ":"+ date.getMinutes()+":"+date.getSeconds();
+        var sunrise_date = date.getHours() + ":"+ date.getMinutes()+":"+date.getSeconds();
 
         this.setState({
             temp: data.main.temp,
             city: data.name,
             country: data.sys.country,
-            sunset: sunset_date
+            pressure: data.main.pressure,
+            sunrise: sunrise_date,
+            sunset: sunset_date,
+            wind: data.wind.speed
         });
     }
     render () {
@@ -61,6 +70,9 @@ class App extends React.Component {
             cityName = { this.state.city}
             countryName = { this.state.country}
             zakat = {this.state.sunset}
+            rassvet = {this.state.sunrise}
+            davlenie = {this.state.pressure}
+            veter = {this.state.wind}
             />
             </div>
             </div>
